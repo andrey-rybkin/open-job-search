@@ -1,0 +1,55 @@
+{
+  "mode": "draft-only",
+  "requireConfirmationFor": [
+    "application_submission",
+    "employer_message",
+    "form_submission",
+    "calendar_confirmation",
+    "file_upload"
+  ],
+  "jobSites": [
+    {
+      "id": "hh",
+      "adapter": "adapters/hh.ru.md",
+      "enabled": false,
+      "discoveryMode": "browser",
+      "applicationMode": "browser-confirmed",
+      "searchQueries": []
+    },
+    {
+      "id": "habr-career",
+      "adapter": "adapters/habr-career.md",
+      "enabled": false,
+      "discoveryMode": "browser-read-only",
+      "applicationMode": "browser-confirmed",
+      "searchQueries": []
+    },
+    {
+      "id": "superjob",
+      "adapter": "adapters/superjob.md",
+      "enabled": false,
+      "discoveryMode": "official-api",
+      "apiAppIdEnv": "SUPERJOB_APP_ID",
+      "applicationMode": "manual-handoff",
+      "searchQueries": []
+    },
+    {
+      "id": "linkedin",
+      "adapter": "adapters/linkedin.md",
+      "enabled": false,
+      "discoveryMode": "manual-handoff",
+      "applicationMode": "manual-only",
+      "searchQueries": []
+    }
+  ],
+  "limits": {
+    "maxApplicationsPerRun": 5,
+    "minDelaySeconds": 45,
+    "maxDelaySeconds": 90
+  },
+  "candidate": {
+    "name": "",
+    "signature": "",
+    "timeZone": ""
+  }
+}
