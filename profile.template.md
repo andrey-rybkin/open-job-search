@@ -27,6 +27,10 @@ Use measurable results only when you can substantiate them. Explain the baseline
 
 Separate professional experience, side projects, coursework and self-study. Add duration/level only when known.
 
+## Languages
+
+List each language and your confirmed proficiency (for example, a CEFR level or a plain-language description). Add evidence only when known; do not claim an unverified level.
+
 ## Not confirmed / do not claim
 
 List skills, responsibilities or facts that must not be presented as established experience.

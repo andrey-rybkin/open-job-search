@@ -1,5 +1,11 @@
 {
   "mode": "draft-only",
+  "languages": {
+    "conversation": "ru",
+    "resume": ["ru", "en"],
+    "applications": "match-vacancy",
+    "vacancies": ["ru", "en"]
+  },
   "requireConfirmationFor": [
     "application_submission",
     "employer_message",

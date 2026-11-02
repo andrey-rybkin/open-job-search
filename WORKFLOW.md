@@ -5,6 +5,8 @@ This file is the harness-neutral source of truth. The harness supplies the model
 ## State and truth
 
 - `profile.md` is the only source of candidate facts. Never infer missing experience, education, availability, salary, legal status or personal details.
+- Follow `settings.json` → `languages`: use `conversation` for replies to the user, create resume versions only for the listed `resume` languages, and consider only the listed `vacancies` languages during discovery. `applications` accepts a BCP 47 language code or `match-vacancy` (the vacancy's original language). Language codes use BCP 47 (for example, `ru`, `en`, `pt-BR`).
+- Keep each vacancy's original text as the source of truth. Detect its language from explicit site metadata or the complete text; if uncertain, ask the user rather than guessing. Do not translate vacancy text when saving it.
 - When the user supplies a resume, extract only explicit facts into `profile.md` as a draft. Preserve uncertainty, ask about ambiguous or missing details, and have the user review the profile before any outreach. Never publish or commit the resume.
 - Keep job records in `jobs/`, draft letters in `outbox/`, sent applications in `applications.md`, skipped jobs in `rejected.md`, unanswered questions in `questions.md`, and employer messages/tasks in `inbox/` and `tasks/`.
 - Before work, recover state from those files. Check both application and rejection records before preparing or sending anything; never duplicate an application.
@@ -14,7 +16,7 @@ This file is the harness-neutral source of truth. The harness supplies the model
 
 1. **Inbox first.** Check for new messages and urgent deadlines. Answer only with facts in `profile.md`. Park unknown questions for the user. Save test tasks and deadlines; do not silently leave them in chat context.
 2. **Discover.** Search configured sources using their adapters. Save the full job description and URL. Exclude known application/rejection IDs. Record a fit decision and unsupported requirements; skip only with a clear reason.
-3. **Draft.** Prepare an individual letter for each job using only profile facts and the employer's requirements. Include required phrases and requested examples. Never submit a generic template or invented claim.
+3. **Draft.** Prepare an individual letter for each job using only profile facts and the employer's requirements. Write it in the configured application language; include required phrases and requested examples. Translate profile facts faithfully without adding claims, and preserve company, product and technology names. Never submit a generic template or invented claim.
 4. **Check.** Run available deterministic checks, then perform an independent fact-and-requirements review. Any edit invalidates the prior review; repeat checks on the final version. Tool errors or missing results are not approval.
 5. **Submit.** Default is draft-only. Before any external submission, show the exact destination and final text to the user and obtain confirmation. After sending, independently verify the application/letter was actually received, then immediately update `applications.md`. If verification fails, do not record it as successful or retry blindly.
 6. **Follow up.** Process replies, forms, interviews and tests only within the user's configured permissions. Ask before sending replies, accepting times, uploading files or sharing personal data. Convert employer time zones explicitly and verify the final calendar event.
