@@ -1,0 +1,21 @@
+# Candidate-specific and runtime data
+profile.md
+settings.json
+*.env
+.env
+.env.*
+!.env.example
+applications.md
+rejected.md
+questions.md
+metrics.md
+jobs/
+outbox/
+inbox/
+tasks/
+state/
+sources/
+*.resume
+*.pdf
+*.docx
+*.log
